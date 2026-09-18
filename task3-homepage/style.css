@@ -475,6 +475,12 @@ body {
 .card:hover {
   box-shadow: 0 4px 16px rgba(0,0,0,0.12);
 }
+html {
+  scroll-behavior: smooth;
+}
+section {
+  box-sizing: border-box;
+}
   }
 
   .avatar {
