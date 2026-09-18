@@ -1,1 +1,2 @@
-# Vibe Coding 实训作品集 
+# hr-homepage
+Static webpage project.
