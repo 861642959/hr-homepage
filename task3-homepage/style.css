@@ -417,6 +417,30 @@ body {
 
   /* 窄屏下加大链接与汉堡按钮的点击区域，保证导航可用 */
   .nav-link {
+    body {
+  overflow-wrap: break-word;
+}
+.hero-name, .hero-tagline {
+  min-width: 0;
+}
+.card {
+  gap: 20px;
+  padding: 24px 20px;
+}
+.contact-item {
+  padding: 20px 24px;
+}
+.nav-link {
+  padding: 12px 14px;
+  font-size: 1rem;
+}
+.hamburger-btn {
+  padding: 10px 14px;
+}
+.avatar {
+  width: 88px;
+  height: 88px;
+}
     padding: 12px 14px;
     font-size: 1rem;
   }
