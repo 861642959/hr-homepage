@@ -1,0 +1,477 @@
+/* ===== 基础变量与重置 ===== */
+:root {
+  --primary: #0f766e;       /* 深青：唯一主色 */
+  --primary-dark: #115e59;
+  --primary-soft: #f0fdfa;  /* 主色极浅底，仅用于头像占位 */
+  --text: #3f454d;          /* 正文深灰 */
+  --text-strong: #23272e;   /* 标题深灰 */
+  --text-light: #878e98;    /* 次要文字 */
+  --bg: #ffffff;
+  --border: #e5e7eb;
+  --radius: 12px;           /* 全站统一的卡片圆角 */
+  --card-padding: 28px 32px; /* 全站统一的卡片内边距 */
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* 锚点跳转时预留吸顶导航的高度，避免标题被遮住 */
+  scroll-padding-top: 84px;
+  /* 窄屏兜底：禁止横向滚动（clip 不会破坏 sticky 导航） */
+  overflow-x: clip;
+}
+
+body {
+  font-family: -apple-system, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Helvetica Neue", sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.9;
+  overflow-wrap: break-word; /* 长单词/邮箱等自动断行，不撑破容器 */
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  width: min(1000px, 90%);
+  margin: 0 auto;
+}
+
+/* ===== ① 顶部导航 ===== */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  transition: border-color 0.2s ease;
+}
+
+.navbar.scrolled {
+  border-bottom-color: #d1d5db;
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  height: 68px;
+}
+
+.nav-logo {
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--text-strong);
+  text-decoration: none;
+  letter-spacing: 0.5px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 6px;
+  list-style: none;
+}
+
+.nav-link {
+  display: block;
+  padding: 8px 14px;
+  border-radius: 6px;
+  color: var(--text-light);
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.2s;
+}
+
+.nav-link:hover {
+  color: var(--primary);
+}
+
+.nav-link.active {
+  color: var(--primary);
+  font-weight: 600;
+  background: var(--primary-soft);
+}
+
+.nav-toggle {
+  display: none;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  border-radius: 6px;
+  font-size: 1.2rem;
+  line-height: 1;
+  padding: 8px 12px;
+  cursor: pointer;
+  color: var(--text-strong);
+}
+
+/* ===== ② 首屏 ===== */
+.hero {
+  padding: 80px 0;
+  background: var(--bg);
+}
+
+/* 首屏两栏：左侧姓名/定位/按钮，右侧头像 */
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-areas:
+    "name avatar"
+    "tagline avatar"
+    "actions avatar";
+  column-gap: 72px;
+  row-gap: 10px;
+  align-items: center;
+  text-align: left;
+}
+
+.avatar {
+  grid-area: avatar;
+  width: 112px;
+  height: 112px;
+  border-radius: 50%;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  letter-spacing: 3px;
+  color: var(--primary);
+  background: var(--primary-soft);
+}
+
+.hero-name {
+  grid-area: name;
+  min-width: 0;
+  font-size: clamp(2.5rem, 6vw, 3.6rem);
+  line-height: 1.3;
+  letter-spacing: 2px;
+  color: var(--text-strong);
+  font-weight: 800;
+}
+
+.hero-tagline {
+  grid-area: tagline;
+  min-width: 0;
+  color: var(--text-light);
+  margin: 0;
+  font-size: 1.15rem;
+}
+
+.hero-actions {
+  grid-area: actions;
+  display: flex;
+  justify-content: flex-start;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 28px;
+}
+
+.btn {
+  padding: 12px 34px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: background 0.2s, color 0.2s;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: var(--primary-dark);
+}
+
+.btn-outline {
+  border: 1px solid var(--primary);
+  color: var(--primary);
+}
+
+.btn-outline:hover {
+  background: var(--primary);
+  color: #fff;
+}
+
+/* ===== 通用区块 ===== */
+.section {
+  padding: 80px 0;
+}
+
+/* 保持整页白底，用细边框做区块分隔 */
+.section-alt {
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.section-title {
+  font-size: 1.9rem;
+  text-align: center;
+  margin-bottom: 56px;
+  color: var(--text-strong);
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--primary);
+  margin: 14px auto 0;
+}
+
+/* ===== ③ 教育背景 ===== */
+.edu-card {
+  max-width: 680px;
+  margin: 0 auto;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--card-padding);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.edu-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(17, 24, 39, 0.08);
+}
+
+.edu-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.edu-head h3 {
+  color: var(--text-strong);
+  font-size: 1.2rem;
+}
+
+.edu-time {
+  color: var(--text-light);
+  font-size: 0.9rem;
+}
+
+.edu-major {
+  color: var(--primary);
+  font-weight: 600;
+  margin: 8px 0 12px;
+}
+
+.edu-desc {
+  color: var(--text-light);
+  font-size: 0.95rem;
+}
+
+/* ===== ④ 项目经历 ===== */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.project-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--card-padding);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+
+.project-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(17, 24, 39, 0.08);
+  border-color: var(--primary);
+}
+
+.project-card h3 {
+  font-size: 1.15rem;
+  color: var(--text-strong);
+}
+
+.project-desc {
+  color: var(--text-light);
+  font-size: 0.95rem;
+  flex: 1;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+}
+
+.tag {
+  padding: 3px 12px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  background: #f3f4f6;
+  color: var(--text);
+}
+
+/* ===== ⑤ 技能（标签云） ===== */
+.skill-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  list-style: none;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.skill-tag {
+  padding: 10px 24px;
+  border-radius: 999px;
+  background: #f3f4f6;
+  color: var(--text);
+  font-size: 0.95rem;
+  cursor: default;
+  transition: color 0.2s, background 0.2s;
+}
+
+.skill-tag:hover {
+  color: var(--primary);
+  background: var(--primary-soft);
+}
+
+/* ===== ⑥ 联系方式 ===== */
+.contact-list {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+
+.contact-item {
+  display: inline-block;
+  padding: var(--card-padding);
+  border-radius: var(--radius);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 500;
+  transition: transform 0.2s, box-shadow 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.contact-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(17, 24, 39, 0.08);
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+/* ===== 页脚 ===== */
+.footer {
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+  color: var(--text-light);
+  text-align: center;
+  padding: 32px 0;
+  font-size: 0.9rem;
+}
+
+.footer p + p {
+  margin-top: 6px;
+  font-size: 0.85rem;
+}
+
+/* ===== 响应式 ===== */
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 68px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 4px;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    padding: 8px 16px 16px;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  /* 窄屏下加大链接与汉堡按钮的点击区域，保证导航可用 */
+  .nav-link {
+    padding: 12px 14px;
+    font-size: 1rem;
+  }
+
+  .nav-toggle {
+    padding: 10px 14px;
+  }
+
+  .hero {
+    padding: 56px 0;
+  }
+
+  .section {
+    padding: 56px 0;
+  }
+
+  /* 移动端首屏恢复上下堆叠、居中，头像缩小避免挤压文字 */
+  .hero-inner {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "avatar"
+      "name"
+      "tagline"
+      "actions";
+    justify-items: center;
+    text-align: center;
+    row-gap: 12px;
+  }
+
+  .avatar {
+    width: 88px;
+    height: 88px;
+    font-size: 1.1rem;
+  }
+
+  .hero-actions {
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  /* 项目卡片单列堆叠，收窄间距与内边距 */
+  .project-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .project-card {
+    padding: 24px 20px;
+  }
+
+  .contact-item {
+    padding: 20px 24px;
+  }
+
+  .edu-card {
+    padding: 28px 24px;
+  }
+}

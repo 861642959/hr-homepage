@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="应届本科生个人主页" />
+  <title>黄蓉 · 个人主页</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ① 顶部导航 -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a class="nav-logo" href="#hero">黄蓉</a>
+      <button class="nav-toggle" id="navToggle" aria-label="切换导航菜单" aria-expanded="false">☰</button>
+      <nav aria-label="主导航">
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#hero" class="nav-link active">首页</a></li>
+          <li><a href="#education" class="nav-link">教育背景</a></li>
+          <li><a href="#projects" class="nav-link">项目经历</a></li>
+          <li><a href="#skills" class="nav-link">技能</a></li>
+          <li><a href="#contact" class="nav-link">联系方式</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ② 首屏 -->
+    <section id="hero" class="hero">
+      <div class="container hero-inner">
+        <div class="avatar" aria-hidden="true">头像</div>
+        <h1 class="hero-name">黄蓉</h1>
+        <p class="hero-tagline">一句话定位：热爱写代码的应届本科生，正在寻找前端开发机会</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#projects">查看项目</a>
+          <a class="btn btn-outline" href="#contact">联系我</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ③ 教育背景 -->
+    <section id="education" class="section">
+      <div class="container">
+        <h2 class="section-title">教育背景</h2>
+        <div class="edu-card">
+          <div class="edu-head">
+            <h3>金陵科技学院</h3>
+            <span class="edu-time">2022.09 — 2026.06</span>
+          </div>
+          <p class="edu-major">计算机科学与技术 · 本科</p>
+          <p class="edu-desc">主修课程：数据结构、操作系统、计算机网络、数据库原理、Web 开发基础。GPA：3.X / 4.0（此处可替换为真实成绩与荣誉）。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ④ 项目经历 -->
+    <section id="projects" class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">项目经历</h2>
+        <div class="project-grid">
+
+          <article class="project-card">
+            <h3>项目名称一</h3>
+            <p class="project-desc">一句话描述：简要说明这个项目做了什么、解决了什么问题。</p>
+            <ul class="tags">
+              <li class="tag">HTML</li>
+              <li class="tag">CSS</li>
+              <li class="tag">JavaScript</li>
+            </ul>
+          </article>
+
+          <article class="project-card">
+            <h3>项目名称二</h3>
+            <p class="project-desc">一句话描述：简要说明这个项目做了什么、解决了什么问题。</p>
+            <ul class="tags">
+              <li class="tag">Python</li>
+              <li class="tag">Flask</li>
+              <li class="tag">MySQL</li>
+            </ul>
+          </article>
+
+          <article class="project-card">
+            <h3>项目名称三</h3>
+            <p class="project-desc">一句话描述：简要说明这个项目做了什么、解决了什么问题。</p>
+            <ul class="tags">
+              <li class="tag">Java</li>
+              <li class="tag">Spring Boot</li>
+              <li class="tag">Redis</li>
+            </ul>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ⑤ 技能 -->
+    <section id="skills" class="section">
+      <div class="container">
+        <h2 class="section-title">技能</h2>
+        <ul class="skill-cloud">
+          <li class="skill-tag">HTML5</li>
+          <li class="skill-tag">CSS3</li>
+          <li class="skill-tag">JavaScript</li>
+          <li class="skill-tag">TypeScript</li>
+          <li class="skill-tag">Python</li>
+          <li class="skill-tag">Java</li>
+          <li class="skill-tag">React</li>
+          <li class="skill-tag">Node.js</li>
+          <li class="skill-tag">MySQL</li>
+          <li class="skill-tag">Git</li>
+          <li class="skill-tag">Linux</li>
+          <li class="skill-tag">数据结构与算法</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ⑥ 联系方式 -->
+    <section id="contact" class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">联系方式</h2>
+        <div class="contact-list">
+          <a class="contact-item" href="mailto:861642959@qq.com">✉️ 861642959@qq.com</a>
+          <a class="contact-item" href="https://github.com/861642959" target="_blank" rel="noopener noreferrer">🐙 github.com/861642959</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 页脚 -->
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 黄蓉 · 用 HTML + CSS + JavaScript 构建</p>
+      <p>本页由 AI 辅助开发 · 2026</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
